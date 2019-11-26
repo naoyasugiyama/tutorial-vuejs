@@ -7,6 +7,20 @@
 </head>
 <body>
     <div id="app" class="container">
+        <!--- input v-on -->
+        <h1>KeyInput</h1>
+        <input type="text" v-on:input="changeTitle">
+        <p>{{input_title}}</p>
+        <hr>
+        <img v-bind:src="img_path" style="width:100px;height:100px">
+        <hr>
+        <input type="text" :value=SetName()>
+
+        <!--- クロスサイトスクリプティングできる可能性があるので注意 -->
+        <p v-html="finishedLink"></p>
+        <!--- input title -->
+        <h1 v-once>{{ title }}</h1>
+        <p>{{ seyHelloy() }} - <a v-bind:href="link">Google</a></p>
         <h1>My Todos</h1>
         <ul>
             <li v-for="todo in todos">{{ todo }}</li>
