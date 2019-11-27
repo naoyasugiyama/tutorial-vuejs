@@ -17,8 +17,24 @@
             img_path: 'https://jp.vuejs.org/images/logo.png',
             name: 'NSUGIYAMA',
             counter: 0,
+            counter02: 0,
             x: 0,
-            y: 0
+            y: 0,
+            input_value: ''
+        },
+        computed:{
+            output: function(){
+                console.log('Computed');
+                return this.counter > 5 ? 'Greater 5' : 'Smaller than 5';
+            }
+        },
+        watch:{
+            counter: function(value){
+                var vm = this;
+                setTimeout(function() {
+                    vm.counter = 0;
+                }, 2000)
+            }
         },
         methods:{
             // input key
@@ -39,11 +55,13 @@
                 this.x = event.clientX;
                 this.y = event.clientY;
             },
-            
             alertMe: function(){
                 alert('Alert!');
+            },
+            result: function(){
+                console.log('method');
+                return this.counter > 5 ? 'Greater 5' : 'Smaller than 5';
             }
-
         }
     });
 })();

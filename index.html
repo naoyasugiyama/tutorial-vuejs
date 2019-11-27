@@ -16,14 +16,29 @@
         <hr>
         <input type="text" v-bind:value="name">
         <hr>
-        <button v-on:click='addcount(2, $event)'>add counter</button>
-        <p>{{counter}}</p>
+        
+        <button v-on:click="counter++">increase</button>
+        <button v-on:click="counter--">decrease</button>
+        <button v-on:click="counter02++">Increase 2</button>
+        <p>Counter: {{ counter }} | {{ counter02 }}</p>
+        <p>Result: {{ result() }} | {{ output }}</p>
+
+
         <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}
             - <span v-on:mousemove.stop="">DEAD SPOT</span>
         </p>
 
+        <!-- inline method handler -->
+
         <hr>
         <input v-on:keyup.enter.space="alertMe">
+        <input type="text" v-on:keydown.enter="input_value = $event.target.value">
+        <p>{{input_value}}</p>
+        <hr>
+
+        <input type ="text" v-model="name">
+        <p>{{name}}</p>
+
 
 
         <!--- クロスサイトスクリプティングできる可能性があるので注意 -->
