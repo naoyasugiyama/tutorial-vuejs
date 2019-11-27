@@ -14,7 +14,17 @@
         <hr>
         <img v-bind:src="img_path" style="width:100px;height:100px">
         <hr>
-        <input type="text" :value=SetName()>
+        <input type="text" v-bind:value="name">
+        <hr>
+        <button v-on:click='addcount(2, $event)'>add counter</button>
+        <p>{{counter}}</p>
+        <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}
+            - <span v-on:mousemove.stop="">DEAD SPOT</span>
+        </p>
+
+        <hr>
+        <input v-on:keyup.enter.space="alertMe">
+
 
         <!--- クロスサイトスクリプティングできる可能性があるので注意 -->
         <p v-html="finishedLink"></p>

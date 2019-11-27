@@ -14,8 +14,11 @@
             link: 'http://google.com',
             // クロスサイトスクリプティング注意
             finishedLink: '<a href="http://google.com">Google</a>',
-            img_path: '',
-            name: 'NSUGIYAMA'
+            img_path: 'https://jp.vuejs.org/images/logo.png',
+            name: 'NSUGIYAMA',
+            counter: 0,
+            x: 0,
+            y: 0
         },
         methods:{
             // input key
@@ -28,7 +31,19 @@
             },
             SetName: function(){
                 return this.name;
+            },
+            addcount: function(step, event){
+                this.counter+=step;
+            },
+            updateCoordinates: function(event){
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+            
+            alertMe: function(){
+                alert('Alert!');
             }
+
         }
     });
 })();
