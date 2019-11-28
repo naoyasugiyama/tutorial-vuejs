@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charaset="UTF-8">
+    <title>Sample01</title>
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+
+    <div id="sample" class="container">
+        <!--
+        <p>Current Value: {{ value }}</p>
+        <button @click="value +=5">Add 5</button>
+        <button @click="value +=1">Add 1</button>
+        <p>{{ result }}</p>
+        
+        <div>
+            <input type="text">
+            <p>{{ value }}</p>
+        </div>
+        <hr>
+        -->
+        <h1>v-bind + v-model change css</h1>
+        <div 
+        class="demo" 
+        @click="attachRed = !attachRed"
+        :class="divClasses"></div>
+        <div class="demo" :class="{red: attachRed}"></div>
+        <div class="demo" :class="[color, {red: attachRed}]"></div>
+        <input type="text" v-model="color">
+        <hr>
+        
+        <h1> computed bind style change css property </h1>
+        <div class="demo" :style="{backgroundColor: demo_color}"></div>
+        <div class="demo" :style="myStyle"></div>
+        <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
+        <input type="text" v-model="demo_color">
+        <input type="text" v-model="width">
+
+        <hr>
+
+        <h1>Progress ber</h1>
+        <button @click="startProgress">Start Progress</button>
+        <div :class="['progress-bar']" :style="progressBar"></div>
+        
+
+    </div>
+
+
+    <!-- 開発バージョン、便利なコンソールの警告が含まれています -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/sample.js"></script>
+
+</body>
+</html>
